@@ -1,36 +1,58 @@
 /* ==========================================================================
-   1. Google Fonts & Root Design Tokens
+   AMAZING ROY COUTURE — Global Stylesheet
+   A refined, professional design system for a bespoke modest couture brand.
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Font Imports & Design Tokens
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Brand Palette */
-  --color-primary: #350539;         /* Deep Purple */
-  --color-primary-hover: #230226;
-  --color-secondary: #C3B6A3;       /* Cream Accent */
-  --color-secondary-light: #F4F0EA; /* Soft Cream Tint */
-  --color-accent: #E5DCCF;          /* Warm Neutral */
+  /* ---- Brand Palette ---- */
+  --color-primary: #350539;         /* Deep Purple — brand signature */
+  --color-primary-hover: #230226;   /* Darker Purple — hover depth */
+  --color-primary-soft: rgba(53, 5, 57, 0.06);
+  --color-secondary: #C3B6A3;       /* Cream Accent — metallic warmth */
+  --color-secondary-light: #F4F0EA; /* Soft Cream Tint — surfaces */
+  --color-accent: #E5DCCF;          /* Warm Neutral — text on dark */
   --color-bg-light: #FDFBF7;        /* Off-White Page Background */
   --color-white: #FFFFFF;
-  
-  /* Text & Border Colors */
-  --color-text-dark: #1E1320;       /* Rich Charcoal-Purple */
-  --color-text-muted: #5C525E;      /* Muted Subtitle Gray */
+
+  /* ---- Text & Border Colors ---- */
+  --color-text-dark: #1E1320;
+  --color-text-muted: #5C525E;
+  --color-text-soft: #8A8089;
   --color-border: rgba(195, 182, 163, 0.45);
+  --color-border-strong: rgba(195, 182, 163, 0.7);
   --color-border-hover: rgba(53, 5, 57, 0.3);
 
-  /* Typography */
-  --font-heading: 'Playfair Display', Georgia, serif;
-  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* ---- Typography ---- */
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  /* Layout & Elevations */
+  /* ---- Layout ---- */
   --max-width: 1200px;
+  --max-width-narrow: 960px;
   --border-radius-sm: 6px;
   --border-radius-md: 12px;
   --border-radius-lg: 20px;
+  --border-radius-pill: 50px;
+
+  /* ---- Elevations ---- */
   --shadow-subtle: 0 4px 20px rgba(53, 5, 57, 0.04);
+  --shadow-card: 0 8px 24px rgba(53, 5, 57, 0.08);
   --shadow-hover: 0 12px 30px rgba(53, 5, 57, 0.12);
+  --shadow-focus: 0 0 0 3px rgba(53, 5, 57, 0.12);
+
+  /* ---- Motion (FIXED: added --transition alias) ---- */
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);   /* ← was missing */
   --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s ease;
+
+  /* ---- Section Rhythm ---- */
+  --section-y: 5rem;
+  --section-y-mobile: 3.5rem;
 }
 
 /* ==========================================================================
@@ -45,6 +67,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -53,7 +76,9 @@ body {
   color: var(--color-text-dark);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -67,6 +92,11 @@ img {
   height: auto;
   display: block;
   object-fit: cover;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 /* ==========================================================================
@@ -84,6 +114,11 @@ p {
   color: var(--color-text-muted);
 }
 
+strong {
+  color: var(--color-text-dark);
+  font-weight: 600;
+}
+
 /* Reusable Container */
 .container {
   width: 90%;
@@ -93,32 +128,41 @@ p {
 
 /* Section Spacing Utility */
 .section-padding {
-  padding: 5rem 0;
+  padding: var(--section-y) 0;
 }
 
 @media (max-width: 768px) {
   .section-padding {
-    padding: 3.5rem 0;
+    padding: var(--section-y-mobile) 0;
   }
 }
 
 /* ==========================================================================
    4. Interactive Component Buttons
    ========================================================================== */
-.btn-primary {
+.btn-primary,
+.btn-whatsapp {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-primary);
-  color: var(--color-secondary);
+  gap: 0.6rem;
   padding: 0.9rem 2rem;
   border-radius: var(--border-radius-sm);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.95rem;
-  border: 1px solid var(--color-primary);
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(53, 5, 57, 0.1);
+  border: 1px solid transparent;
   transition: var(--transition-smooth);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 12px rgba(53, 5, 57, 0.1);
 }
 
 .btn-primary:hover {
@@ -129,25 +173,25 @@ p {
 }
 
 .btn-whatsapp {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
   background-color: #25D366;
   color: var(--color-white);
-  padding: 0.9rem 2rem;
-  border-radius: var(--border-radius-sm);
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
+  border-color: #25D366;
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.15);
-  transition: var(--transition-smooth);
 }
 
 .btn-whatsapp:hover {
   background-color: #1eb857;
+  border-color: #1eb857;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+}
+
+.btn-primary:focus-visible,
+.btn-whatsapp:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
 }
 
 /* ==========================================================================
@@ -168,6 +212,7 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 0.85rem 0;
+  gap: 1.5rem;
 }
 
 .brand-logo {
@@ -194,21 +239,29 @@ p {
   font-size: 0.95rem;
   color: var(--color-text-dark);
   position: relative;
+  padding: 0.25rem 0;
 }
 
 .nav-links a::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -2px;
   left: 0;
   width: 0%;
   height: 2px;
   background-color: var(--color-primary);
-  transition: var(--transition-smooth);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 2px;
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
   width: 100%;
+}
+
+.nav-links a.active {
+  color: var(--color-primary);
+  font-weight: 600;
 }
 
 .nav-toggle {
@@ -218,6 +271,12 @@ p {
   font-size: 1.8rem;
   color: var(--color-primary);
   cursor: pointer;
+  padding: 0.25rem;
+  transition: var(--transition-smooth);
+}
+
+.nav-toggle:hover {
+  transform: scale(1.08);
 }
 
 /* ==========================================================================
@@ -286,7 +345,7 @@ p {
   left: 0;
   width: 4px;
   height: 100%;
-  background-color: var(--color-primary);
+  background: linear-gradient(180deg, var(--color-secondary), var(--color-primary));
 }
 
 .process-card:hover {
@@ -303,14 +362,20 @@ form select,
 form textarea {
   width: 100%;
   padding: 0.9rem 1.1rem;
-  border: 1px solid #D8D2CA;
+  border: 1.5px solid #D8D2CA;
   border-radius: var(--border-radius-sm);
   font-family: var(--font-body);
   font-size: 0.95rem;
   background-color: var(--color-bg-light);
   color: var(--color-text-dark);
-  transition: var(--transition-smooth);
+  transition: var(--transition-fast);
   outline: none;
+  box-sizing: border-box;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: var(--color-text-soft);
 }
 
 form input:focus,
@@ -318,19 +383,36 @@ form select:focus,
 form textarea:focus {
   border-color: var(--color-primary);
   background-color: var(--color-white);
-  box-shadow: 0 0 0 3px rgba(53, 5, 57, 0.1);
+  box-shadow: var(--shadow-focus);
+}
+
+form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23350539' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
 }
 
 form label {
   display: block;
   font-weight: 600;
-  font-size: 0.875rem;
-  margin-bottom: 0.4rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.45rem;
   color: var(--color-primary);
 }
 
 /* ==========================================================================
-   9. Mobile Drawer & Responsive Breakpoints
+   9. Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 992px) {
   .hero-grid {
@@ -361,12 +443,12 @@ form label {
 
   .nav-links {
     position: fixed;
-    top: 70px;
+    top: 72px;
     left: 0;
     width: 100%;
     background-color: var(--color-bg-light);
     flex-direction: column;
-    padding: 2.5rem 2rem;
+    padding: 2.5rem 2rem 3rem;
     gap: 1.8rem;
     border-bottom: 1px solid var(--color-border);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
@@ -374,6 +456,7 @@ form label {
     opacity: 0;
     visibility: hidden;
     transition: var(--transition-smooth);
+    z-index: 999;
   }
 
   .nav-links.active {
@@ -383,9 +466,10 @@ form label {
   }
 
   .nav-links a::after {
-    display: none; /* Hide hover line animation on touch screens */
+    display: none;
   }
 }
+
 /* ==========================================================================
    10. Site Footer Component
    ========================================================================== */
@@ -425,10 +509,12 @@ form label {
   gap: 0.75rem;
 }
 
+/* FIXED: was var(--transition) — now defined */
 .footer-links a {
   color: var(--color-accent);
   font-size: 0.95rem;
   transition: var(--transition);
+  display: inline-block;
 }
 
 .footer-links a:hover {
@@ -443,8 +529,10 @@ form label {
   color: var(--color-accent);
   font-size: 0.95rem;
   margin-bottom: 0.8rem;
+  line-height: 1.6;
 }
 
+/* FIXED: was var(--transition) — now defined */
 .footer-contact-item a {
   color: var(--color-secondary);
   font-weight: 500;
@@ -453,15 +541,17 @@ form label {
 
 .footer-contact-item a:hover {
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* ==========================================================================
-   Styled Social Media Icon Links
+   11. Social Media Icon Links
    ========================================================================== */
 .social-links {
   display: flex;
   gap: 0.9rem;
   margin-top: 1.2rem;
+  flex-wrap: wrap;
 }
 
 .social-icon {
@@ -472,36 +562,51 @@ form label {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(195, 182, 163, 0.12); /* Subtle cream transparent fill */
-  border: 1px solid rgba(195, 182, 163, 0.3); /* Metallic cream border */
-  padding: 10px;
+  background: rgba(195, 182, 163, 0.12);
+  border: 1px solid rgba(195, 182, 163, 0.3);
+  color: var(--color-secondary);
   transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
   backdrop-filter: blur(4px);
+  text-decoration: none;
 }
 
-.social-img-icon {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  /* Converts default colored icons into elegant Cream (#C3B6A3) tint */
-  filter: brightness(0) invert(83%) sepia(12%) saturate(468%) hue-rotate(352deg) brightness(89%) contrast(85%);
-  transition: filter 0.35s ease, transform 0.35s ease;
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  fill: currentColor;
+  transition: var(--transition-fast);
 }
 
-/* Hover Effect: Glow & Color Shift */
 .social-icon:hover {
-  background: var(--color-secondary); /* Flips to Cream background */
+  background: var(--color-secondary);
   border-color: var(--color-secondary);
+  color: var(--color-primary);
   transform: translateY(-4px) scale(1.05);
   box-shadow: 0 6px 16px rgba(195, 182, 163, 0.25);
 }
 
+.social-icon:hover svg {
+  transform: scale(1.08);
+}
+
+/* ---- Legacy image-based social icons (kept for compatibility) ---- */
+.social-img-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(83%) sepia(12%) saturate(468%) hue-rotate(352deg) brightness(89%) contrast(85%);
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+
 .social-icon:hover .social-img-icon {
-  /* Inverts icon color to Deep Purple (#350539) on hover */
   filter: brightness(0) saturate(100%) invert(8%) sepia(82%) saturate(5412%) hue-rotate(282deg) brightness(85%) contrast(108%);
   transform: scale(1.1);
 }
 
+/* ==========================================================================
+   12. Footer Bottom Bar
+   ========================================================================== */
 .footer-bottom {
   padding-top: 2rem;
   border-top: 1px solid rgba(195, 182, 163, 0.15);
@@ -514,6 +619,42 @@ form label {
   color: var(--color-accent);
 }
 
+.footer-bottom p {
+  color: var(--color-accent);
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   13. Portfolio Slideshow — Global Support Styles
+   (Page-specific layout lives inline in services.html)
+   ========================================================================== */
+.slideshow-wrapper {
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: grab;
+}
+
+.slideshow-wrapper:active {
+  cursor: grabbing;
+}
+
+/* Prevent image drag ghosting during swipe */
+.slide-image-container img {
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+/* Restore pointer events on interactive elements inside slides */
+.slide-details a,
+.slide-details button {
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   14. Responsive Footer Adjustments
+   ========================================================================== */
 @media (max-width: 992px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -525,8 +666,59 @@ form label {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+/* ==========================================================================
+   15. Accessibility & Motion Preferences
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Screen Reader Only Utility ---- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   16. Print Styles
+   ========================================================================== */
+@media print {
+  .site-header,
+  .site-footer,
+  .nav-toggle,
+  .btn-primary,
+  .btn-whatsapp {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  a {
+    text-decoration: underline;
+    color: black;
   }
 }
