@@ -1,0 +1,13 @@
+# robots.txt — AMAZING ROY COUTURE
+# Allows all well-behaved crawlers to index the site.
+# Update the sitemap URL below to your live domain after deployment.
+
+User-agent: *
+Allow: /
+
+# Block admin or internal paths if added later
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location (update with your live domain)
+Sitemap: https://amazingroycouture.com/sitemap.xml

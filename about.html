@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story & Founder Profile | AMAZING ROY COUTURE</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ============================================
+       FOUNDER PROFILE & BIOGRAPHY STYLING
+       ============================================ */
+
+    /* --- Main Profile Card --- */
+    .founder-profile-card {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      margin-top: 3.5rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .founder-profile-card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* --- Profile Banner Header --- */
+    .profile-banner-header {
+      background-color: var(--color-primary);
+      color: var(--color-secondary);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 2px solid var(--color-secondary);
+    }
+
+    .profile-banner-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      color: var(--color-secondary);
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .profile-banner-tag {
+      background: rgba(195, 182, 163, 0.2);
+      color: var(--color-secondary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    /* --- Profile Details Grid --- */
+    .profile-details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      padding: 2.5rem 2rem;
+      background-color: rgba(195, 182, 163, 0.05);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .profile-info-block {
+      padding: 0.5rem 0;
+    }
+
+    .profile-info-block h4 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-primary);
+      margin-bottom: 0.6rem;
+      font-weight: 700;
+    }
+
+    .profile-info-block p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .profile-info-block span {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      font-weight: 400;
+      margin-top: 0.3rem;
+      line-height: 1.5;
+    }
+
+    /* --- Bio Narrative Box --- */
+    .bio-narrative-box {
+      padding: 2.5rem 2rem;
+      background-color: var(--color-white);
+    }
+
+    .bio-narrative-box h4 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--color-primary);
+      margin-bottom: 1.2rem;
+    }
+
+    .bio-narrative-box p {
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .bio-narrative-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* --- Brand Pillars --- */
+    .bio-pillars {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+    }
+
+    .pillar-chip {
+      font-size: 0.82rem;
+      font-weight: 600;
+      background-color: var(--color-secondary-light);
+      color: var(--color-primary);
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      border: 1px solid var(--color-border);
+      transition: all 0.2s ease;
+    }
+
+    .pillar-chip:hover {
+      background-color: var(--color-primary);
+      color: var(--color-secondary);
+      border-color: var(--color-primary);
+      transform: translateY(-1px);
+    }
+
+    /* ============================================
+       CERTIFICATE SECTION
+       ============================================ */
+    .certificate-card {
+      margin-top: 3.5rem;
+      background-color: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .certificate-card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .certificate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: stretch;
+    }
+
+    .certificate-grid > div:first-child {
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .certificate-image-wrapper {
+      background-color: var(--color-secondary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      border-left: 1px solid var(--color-border);
+    }
+
+    .certificate-image-wrapper a {
+      display: block;
+      max-width: 100%;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .certificate-image-wrapper a:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .certificate-image-wrapper img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 320px;
+      object-fit: contain;
+    }
+
+    /* ============================================
+       HERO BANNER
+       ============================================ */
+    .story-hero {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      padding: 5rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at center, rgba(195, 182, 163, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .story-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .story-hero h1 {
+      color: var(--color-secondary);
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .story-hero p {
+      color: var(--color-accent);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ============================================
+       FOUNDER OVERVIEW SECTION
+       ============================================ */
+    .founder-overview {
+      padding: 5rem 0;
+    }
+
+    .founder-intro-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .founder-portrait {
+      position: relative;
+    }
+
+    .founder-portrait-frame {
+      width: 100%;
+      height: 520px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-hover);
+      border: 1px solid var(--color-border);
+      background-color: var(--color-secondary-light);
+    }
+
+    .founder-portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .founder-narrative h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.3;
+    }
+
+    .founder-narrative p {
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+    }
+
+    .founder-narrative p strong {
+      color: var(--color-text);
+    }
+
+    /* ============================================
+       RESPONSIVE ADJUSTMENTS
+       ============================================ */
+    @media (max-width: 768px) {
+      .story-hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .story-hero p {
+        font-size: 1rem;
+      }
+
+      .founder-overview {
+        padding: 3rem 0;
+      }
+
+      .founder-intro-grid {
+        gap: 2.5rem;
+      }
+
+      .founder-portrait-frame {
+        height: 400px;
+      }
+
+      .founder-narrative h2 {
+        font-size: 1.8rem;
+      }
+
+      .profile-details-grid {
+        padding: 2rem 1.5rem;
+        gap: 1.2rem;
+      }
+
+      .bio-narrative-box {
+        padding: 2rem 1.5rem;
+      }
+
+      .certificate-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .certificate-grid > div:first-child {
+        padding: 2rem 1.5rem;
+      }
+
+      .certificate-image-wrapper {
+        border-left: none;
+        border-top: 1px solid var(--color-border);
+        padding: 1.5rem;
+      }
+
+      .profile-banner-header {
+        padding: 1.2rem 1.5rem;
+      }
+
+      .profile-banner-header h3 {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .story-hero {
+        padding: 3.5rem 0;
+      }
+
+      .story-hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .founder-portrait-frame {
+        height: 320px;
+      }
+
+      .founder-narrative h2 {
+        font-size: 1.5rem;
+      }
+
+      .profile-details-grid {
+        grid-template-columns: 1fr;
+        padding: 1.5rem 1.2rem;
+      }
+
+      .bio-narrative-box {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .bio-narrative-box h4 {
+        font-size: 1.15rem;
+      }
+
+      .pillar-chip {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       SITE NAVIGATION HEADER
+       ============================================ -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html">
+        <img src="assets/logo.jpeg" alt="AMAZING ROY Logo" class="brand-logo">
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">Our Story</a></li>
+          <li><a href="services.html">Custom Couture</a></li>
+          <li><a href="contact.html">Contact &amp; Studio</a></li>
+          <li>
+            <a href="https://wa.me/2347080262027?text=Hello%20Amazing%20ROY..." target="_blank" class="btn-whatsapp">WhatsApp Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================
+       HERO BANNER
+       ============================================ -->
+  <section class="story-hero">
+    <div class="container">
+      <span class="section-tag" style="background: rgba(195,182,163,0.2); color: var(--color-secondary);">The Atelier</span>
+      <h1>Our Story &amp; Leadership</h1>
+      <p>Crafting modest elegance with purpose, precision, and passion.</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOUNDER OVERVIEW SECTION
+       ============================================ -->
+  <section class="founder-overview">
+    <div class="container">
+
+      <!-- Top Grid: Image & Core Narrative -->
+      <div class="founder-intro-grid">
+
+        <!-- Founder Portrait Container -->
+        <div class="founder-portrait">
+          <div class="founder-portrait-frame">
+            <img src="assets/founder.jpg"
+                 alt="Roheemot Omolara Yunus — Founder &amp; Creative Director"
+                 loading="lazy">
+          </div>
+        </div>
+
+        <!-- Narrative Content -->
+        <div class="founder-narrative">
+          <span class="section-tag">Brand Philosophy</span>
+          <h2>A Passion Turned into Purpose</h2>
+          <p>
+            AMAZING ROY COUTURE was born from a lifelong dedication to garment construction and style. Founder <strong>Roheemot Omolara Yunus</strong> discovered her fascination with textiles and design at an early age, evolving a personal interest into a professional modest fashion atelier.
+          </p>
+          <p>
+            The brand name "Amazing ROY" combines personal identity with creative ambition. It serves as a commitment to empowering women — students, corps members, young professionals, and entrepreneurs — who seek wardrobe solutions that balance sophistication, comfort, and modest values.
+          </p>
+          <p>
+            Under Roheemot's creative direction, every bespoke garment is built around structural integrity, precise measurements, and functional elegance tailored to the client's lifestyle.
+          </p>
+          <a href="services.html" class="btn-primary">View Custom Couture Services</a>
+        </div>
+
+      </div>
+
+      <!-- ============================================
+           COMPREHENSIVE FOUNDER PROFILE CARD
+           ============================================ -->
+      <div class="founder-profile-card">
+
+        <!-- Header -->
+        <div class="profile-banner-header">
+          <h3>Atelier &amp; Founder Profile</h3>
+          <span class="profile-banner-tag">Creative Direction</span>
+        </div>
+
+        <!-- Profile Details Grid -->
+        <div class="profile-details-grid">
+
+          <!-- Name & Role -->
+          <div class="profile-info-block">
+            <h4>Founder &amp; Lead Designer</h4>
+            <p>Roheemot Omolara Yunus</p>
+            <span>Creative Director &amp; Head Atelier</span>
+          </div>
+
+          <!-- Academic & Professional Background -->
+          <div class="profile-info-block">
+            <h4>Education &amp; Background</h4>
+            <p>BSc. Family, Nutrition and Consumer Sciences (in view)</p>
+            <span>Specialized Training in Garment Construction &amp; Pattern Drafting</span>
+          </div>
+
+          <!-- Location & Base -->
+          <div class="profile-info-block">
+            <h4>Atelier Location</h4>
+            <p>Modakeke, Osun State</p>
+            <span>8 Oke Ola Street, Ile-Ife, Osun State</span>
+          </div>
+
+          <!-- Specialization -->
+          <div class="profile-info-block">
+            <h4>Design Specialization</h4>
+            <p>Bespoke Modest Couture</p>
+            <span>Corporate Wear &amp; Structural Gowns</span>
+          </div>
+
+        </div>
+
+        <!-- Detailed Bio Paragraphs -->
+        <div class="bio-narrative-box">
+          <h4>About Roheemot Omolara Yunus</h4>
+          <p>
+            Roheemot's approach to tailoring combines academic discipline with practical garment crafting. Her background in higher education provided a strong analytical foundation that she applies directly to fashion production, pattern engineering, and client consultations.
+          </p>
+          <p>
+            Focusing on the unique attire needs of ambitious women, she advocates for garments that feel as good as they look. Rather than following fast-fashion trends, her work emphasizes clean tailoring, quality fabrics, and versatile modest designs that seamlessly adapt from formal occasions to professional environments.
+          </p>
+
+          <!-- Core Brand Pillars -->
+          <div style="margin-top: 1.8rem;">
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.8rem;">Brand Pillars</h4>
+            <div class="bio-pillars">
+              <span class="pillar-chip">✨ Thoughtful Craftsmanship</span>
+              <span class="pillar-chip">✨ Structural Elegance</span>
+              <span class="pillar-chip">✨ Modest Sophistication</span>
+              <span class="pillar-chip">✨ Everyday Functionality</span>
+              <span class="pillar-chip">✨ Precision Fitting</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============================================
+           REGISTRATION CERTIFICATE SECTION
+           ============================================ -->
+      <div class="certificate-card">
+        <div class="certificate-grid">
+          <div>
+            <span class="section-tag">Official Business Registration</span>
+            <h3 style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--color-primary); margin-bottom: 1rem; line-height: 1.3;">
+              Registered &amp; Verified Enterprise
+            </h3>
+            <p style="color: var(--color-text-muted); line-height: 1.8; margin-bottom: 1.2rem;">
+              AMAZING ROY COUTURE operates as an officially registered business entity. We are committed to maintaining the highest professional standards, transparency, and consumer trust across all custom tailored orders and client consultations.
+            </p>
+            <p style="color: var(--color-text-muted); font-size: 0.92rem; font-style: italic;">
+              Click or tap the certificate preview to view high-resolution verification details.
+            </p>
+          </div>
+
+          <!-- Registration Certificate Image -->
+          <div class="certificate-image-wrapper">
+            <a href="assets/certificate.png" target="_blank" title="View Full Registration Certificate">
+              <img src="assets/certificate.png" alt="AMAZING ROY COUTURE Business Registration Certificate" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       REUSABLE SITE FOOTER
+       ============================================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand Info & Social Media Links -->
+        <div class="footer-brand">
+          <a href="index.html">
+            <img src="assets/logo.jpeg" alt="AMAZING ROY COUTURE Logo" style="height: 50px; border-radius: var(--radius-sm);">
+          </a>
+          <p>
+            Combining thoughtful design, quality craftsmanship, comfort, functionality, and timeless elegance for the ambitious modest woman.
+          </p>
+
+           <!-- Social Media SVG Icons -->
+          <div class="social-links">
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/amazing_roy_f" target="_blank" class="social-icon" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://tiktok.com/@amazing_roy_f" target="_blank" class="social-icon" aria-label="TikTok">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+              </svg>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/2347080262027" target="_blank" class="social-icon" aria-label="WhatsApp">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </a>
+
+          </div>
+        </div>
+        <!-- Quick Navigation -->
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="services.html">Custom Couture</a></li>
+            <li><a href="contact.html">Contact &amp; Studio</a></li>
+          </ul>
+        </div>
+
+        <!-- Offerings -->
+        <div>
+          <h4 class="footer-title">Offerings</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Bespoke Tailoring</a></li>
+            <li><a href="services.html">Modest Custom Wear</a></li>
+            <li><a href="services.html">Corporate Apparel</a></li>
+            <li><a href="services.html">Ready-to-Wear (Soon)</a></li>
+          </ul>
+        </div>
+
+        <!-- Studio Contact Info -->
+        <div>
+          <h4 class="footer-title">Studio &amp; Inquiries</h4>
+
+          <div class="footer-contact-item">
+            <span>📍</span>
+            <span>8 Oke Ola Street, Modakeke, Ile-Ife, Osun State</span>
+          </div>
+
+          <div class="footer-contact-item">
+            <span>📞</span>
+            <a href="tel:07080262027">07080262027</a>
+          </div>
+
+          <div class="footer-contact-item">
+            <span>✉️</span>
+            <a href="mailto:amazingroy.ff@gmail.com">amazingroy.ff@gmail.com</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 AMAZING ROY COUTURE. All rights reserved.</p>
+        <p>Founded by Roheemot Omolara Yunus</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       FOOTER SOCIAL ICON STYLES
+       ============================================ -->
+  <style>
+    .social-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #e0e0e0;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-icon:hover {
+      background-color: var(--accent, #c9a87c);
+      color: #1a1a1a;
+      border-color: var(--accent, #c9a87c);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-icon svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+      fill: currentColor;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .footer-contact-item a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-contact-item a:hover {
+      color: var(--accent, #c9a87c);
+    }
+  </style>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

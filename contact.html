@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact AMAZING ROY COUTURE — studio location, phone, email, and WhatsApp for bespoke modest tailoring and fittings in Ile-Ife, Osun State.">
+  <title>Contact &amp; Studio | AMAZING ROY COUTURE</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ============================================
+       CONTACT PAGE — PROFESSIONAL REFINEMENTS
+       ============================================ */
+
+    .contact-hero {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      padding: 5.5rem 0 6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 900px;
+      background: radial-gradient(circle, rgba(195, 182, 163, 0.1) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .contact-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-hero h1 {
+      color: var(--color-secondary);
+      font-size: 3rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .contact-hero p {
+      color: var(--color-accent);
+      font-size: 1.1rem;
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .contact-main {
+      padding: 5rem 0 5.5rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    /* --- Studio Info Column --- */
+    .studio-info h2 {
+      font-size: 2.1rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.25;
+    }
+
+    .studio-info > p {
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      margin-bottom: 2.2rem;
+    }
+
+    .info-block {
+      display: flex;
+      gap: 1.1rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .info-block:last-child {
+      border-bottom: none;
+    }
+
+    .info-icon {
+      flex-shrink: 0;
+      width: 46px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(195, 182, 163, 0.28), rgba(195, 182, 163, 0.08));
+      color: var(--color-primary);
+      font-size: 1.2rem;
+    }
+
+    .info-content h3 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-primary);
+      margin-bottom: 0.4rem;
+      font-weight: 700;
+    }
+
+    .info-content p {
+      color: var(--color-text-muted);
+      margin: 0 0 0.7rem 0;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .info-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* --- Action Buttons --- */
+    .contact-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.3rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      border: 1.5px solid transparent;
+    }
+
+    .btn-call {
+      background-color: var(--color-primary);
+      color: var(--color-secondary);
+      border-color: var(--color-primary);
+    }
+
+    .btn-call:hover {
+      background-color: var(--color-primary-dark, #2a042e);
+      color: var(--color-white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(53, 5, 57, 0.2);
+    }
+
+    .btn-email {
+      background-color: var(--color-white);
+      color: var(--color-primary);
+      border-color: var(--color-border);
+    }
+
+    .btn-email:hover {
+      background-color: var(--color-secondary-light);
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(53, 5, 57, 0.08);
+    }
+
+    /* --- Form Card --- */
+    .contact-form-card {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      padding: 2.8rem 2.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+    }
+
+    .contact-form-card h2 {
+      font-size: 1.7rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .contact-form-card > p {
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    /* --- WhatsApp Notice Badge --- */
+    .wa-notice {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background-color: rgba(37, 211, 102, 0.08);
+      border: 1px solid rgba(37, 211, 102, 0.25);
+      color: #1a7a3f;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.7rem 1rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1.6rem;
+      line-height: 1.5;
+    }
+
+    .wa-notice svg {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      fill: #25D366;
+    }
+
+    /* --- Form Fields --- */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.3rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .form-group label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-primary);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--color-text);
+      background-color: #fdfcfa;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+      box-sizing: border-box;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #a8a29a;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      background-color: var(--color-white);
+      box-shadow: 0 0 0 3px rgba(53, 5, 57, 0.08);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+      font-family: inherit;
+    }
+
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23350539' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .contact-form .btn-whatsapp-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+      width: 100%;
+      padding: 1rem 1.5rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--color-white);
+      background-color: #25D366;
+      border: 1.5px solid #25D366;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.2);
+    }
+
+    .contact-form .btn-whatsapp-submit:hover {
+      background-color: #1eb857;
+      border-color: #1eb857;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(37, 211, 102, 0.3);
+    }
+
+    .contact-form .btn-whatsapp-submit:active {
+      transform: translateY(0);
+    }
+
+    .contact-form .btn-whatsapp-submit svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .contact-form-card {
+        padding: 2.2rem 1.8rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-hero {
+        padding: 4rem 0;
+      }
+
+      .contact-hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .contact-hero p {
+        font-size: 1rem;
+      }
+
+      .contact-main {
+        padding: 3.5rem 0;
+      }
+
+      .studio-info h2 {
+        font-size: 1.7rem;
+      }
+
+      .contact-form-card {
+        padding: 1.8rem 1.3rem;
+      }
+
+      .contact-form-card h2 {
+        font-size: 1.4rem;
+      }
+
+      .info-block {
+        gap: 0.9rem;
+        padding: 1.2rem 0;
+      }
+
+      .info-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       SITE NAVIGATION HEADER
+       ============================================ -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html">
+        <img src="assets/logo.jpeg" alt="AMAZING ROY Logo" class="brand-logo">
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="services.html">Custom Couture</a></li>
+          <li><a href="contact.html" class="active">Contact &amp; Studio</a></li>
+          <li>
+            <a href="https://wa.me/2347080262027?text=Hello%20Amazing%20ROY..." target="_blank" class="btn-whatsapp">WhatsApp Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================
+       PAGE HERO BANNER
+       ============================================ -->
+  <section class="contact-hero">
+    <div class="container">
+      <span class="section-tag" style="background: rgba(195,182,163,0.2); color: var(--color-secondary);">Location &amp; Inquiries</span>
+      <h1>Connect With Us</h1>
+      <p>We are here to assist with your custom garment and fitting needs.</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       MAIN CONTACT & STUDIO SECTION
+       ============================================ -->
+  <section class="contact-main">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- ==========================================
+             STUDIO INFO COLUMN
+             ========================================== -->
+        <div class="studio-info">
+          <span class="section-tag">Physical Studio</span>
+          <h2>Studio Details</h2>
+          <p>Visit our atelier in Ile-Ife or reach out through any of the channels below. We respond to all inquiries promptly.</p>
+
+          <!-- Physical Location -->
+          <div class="info-block">
+            <div class="info-icon">📍</div>
+            <div class="info-content">
+              <h3>Studio Location</h3>
+              <p>8 Oke Ola Street, Modakeke<br>Ile-Ife, Osun State</p>
+            </div>
+          </div>
+
+          <!-- Phone Consultation -->
+          <div class="info-block">
+            <div class="info-icon">📞</div>
+            <div class="info-content">
+              <h3>Phone Consultation</h3>
+              <p>07080262027</p>
+              <a href="tel:07080262027" class="contact-action-btn btn-call">
+                📞 Call Studio Directly
+              </a>
+            </div>
+          </div>
+
+          <!-- Email Inquiries -->
+          <div class="info-block">
+            <div class="info-icon">✉️</div>
+            <div class="info-content">
+              <h3>Email Inquiries</h3>
+              <p>amazingroy.ff@gmail.com</p>
+              <a href="mailto:amazingroy.ff@gmail.com?subject=Inquiry%20for%20AMAZING%20ROY%20Couture" class="contact-action-btn btn-email">
+                ✉️ Send an Email
+              </a>
+            </div>
+          </div>
+
+          <!-- WhatsApp -->
+          <div class="info-block">
+            <div class="info-icon">💬</div>
+            <div class="info-content">
+              <h3>Instant Messaging</h3>
+              <p>Chat directly with us on WhatsApp for quick responses.</p>
+              <a href="https://wa.me/2347080262027?text=Hello%20Amazing%20ROY,%20I%20would%20like%20to%20schedule%20a%20fitting/consultation." target="_blank" class="btn-whatsapp">
+                Chat on WhatsApp
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ==========================================
+             CONTACT FORM CARD — WHATSAPP SUBMISSION
+             ========================================== -->
+        <div class="contact-form-card">
+          <h2>Send a Message</h2>
+          <p>Fill in your details below and we'll open WhatsApp with your message ready to send — no waiting, no lost inquiries.</p>
+
+          <!-- WhatsApp Notice -->
+          <div class="wa-notice">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span>Submitting will open WhatsApp with your message pre-filled. Just tap send!</span>
+          </div>
+
+          <form id="waContactForm" class="contact-form" novalidate>
+
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required placeholder="e.g. Fatima Yunus">
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone / WhatsApp Number</label>
+              <input type="tel" id="phone" name="phone" required placeholder="07000000000">
+            </div>
+
+            <div class="form-group">
+              <label for="service">Inquiry Type</label>
+              <select id="service" name="service">
+                <option value="Custom Modest Tailoring">Custom Modest Tailoring</option>
+                <option value="Schedule Fitting Session">Schedule Fitting Session</option>
+                <option value="Ready-to-Wear Information">Ready-to-Wear Information</option>
+                <option value="General Inquiry">General Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Describe your preferred design or fitting date..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-whatsapp-submit">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Send via WhatsApp
+            </button>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       REUSABLE SITE FOOTER
+       ============================================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand Info & Social Media Links -->
+        <div class="footer-brand">
+          <a href="index.html">
+            <img src="assets/logo.jpeg" alt="AMAZING ROY COUTURE Logo" style="height: 50px; border-radius: var(--radius-sm);">
+          </a>
+          <p>
+            Combining thoughtful design, quality craftsmanship, comfort, functionality, and timeless elegance for the ambitious modest woman.
+          </p>
+
+          <!-- Social Media SVG Icons -->
+          <div class="social-links">
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/amazing_roy_f" target="_blank" class="social-icon" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://tiktok.com/@amazing_roy_f" target="_blank" class="social-icon" aria-label="TikTok">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+              </svg>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/2347080262027" target="_blank" class="social-icon" aria-label="WhatsApp">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="services.html">Custom Couture</a></li>
+            <li><a href="contact.html">Contact &amp; Studio</a></li>
+          </ul>
+        </div>
+
+        <!-- Offerings -->
+        <div>
+          <h4 class="footer-title">Offerings</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Bespoke Tailoring</a></li>
+            <li><a href="services.html">Modest Custom Wear</a></li>
+            <li><a href="services.html">Corporate Apparel</a></li>
+            <li><a href="services.html">Ready-to-Wear (Soon)</a></li>
+          </ul>
+        </div>
+
+        <!-- Studio Contact Info -->
+        <div>
+          <h4 class="footer-title">Studio &amp; Inquiries</h4>
+
+          <div class="footer-contact-item">
+            <span>📍</span>
+            <span>8 Oke Ola Street, Modakeke, Ile-Ife, Osun State</span>
+          </div>
+
+          <div class="footer-contact-item">
+            <span>📞</span>
+            <a href="tel:07080262027">07080262027</a>
+          </div>
+
+          <div class="footer-contact-item">
+            <span>✉️</span>
+            <a href="mailto:amazingroy.ff@gmail.com">amazingroy.ff@gmail.com</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 AMAZING ROY COUTURE. All rights reserved.</p>
+        <p>Founded by Roheemot Omolara Yunus</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       FOOTER SOCIAL ICON STYLES
+       ============================================ -->
+  <style>
+    .social-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #e0e0e0;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-icon:hover {
+      background-color: var(--accent, #c9a87c);
+      color: #1a1a1a;
+      border-color: var(--accent, #c9a87c);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-icon svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+      fill: currentColor;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .footer-contact-item a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-contact-item a:hover {
+      color: var(--accent, #c9a87c);
+    }
+  </style>
+
+  <!-- ============================================
+       WHATSAPP SUBMISSION SCRIPT
+       ============================================ -->
+  <script>
+    (function () {
+      // ---- Configuration ----
+      // International format, no +, no spaces (Nigeria = 234)
+      var BUSINESS_NUMBER = '2347080262027';
+
+      var form = document.getElementById('waContactForm');
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // ---- Gather values ----
+        var name    = document.getElementById('name').value.trim();
+        var phone   = document.getElementById('phone').value.trim();
+        var service = document.getElementById('service').value;
+        var message = document.getElementById('message').value.trim();
+
+        // ---- Basic validation ----
+        if (!name || !phone || !message) {
+          alert('Please fill in your name, phone number, and message before sending.');
+          return;
+        }
+
+        // ---- Compose the WhatsApp message ----
+        var lines = [
+          'Hello AMAZING ROY COUTURE ✨',
+          '',
+          '*Name:* ' + name,
+          '*Phone:* ' + phone,
+          '*Inquiry Type:* ' + service,
+          '',
+          '*Message:*',
+          message
+        ];
+
+        var text = encodeURIComponent(lines.join('\n'));
+        var waUrl = 'https://wa.me/' + BUSINESS_NUMBER + '?text=' + text;
+
+        // ---- Open WhatsApp (new tab so the site stays open) ----
+        window.open(waUrl, '_blank', 'noopener,noreferrer');
+
+        // ---- Optional: reset form after a short delay ----
+        setTimeout(function () {
+          form.reset();
+        }, 1200);
+      });
+    })();
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

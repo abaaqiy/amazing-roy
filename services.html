@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bespoke modest tailoring, corporate wear, and custom couture services by AMAZING ROY COUTURE — crafted for the ambitious woman.">
+  <title>Services &amp; Custom Couture | AMAZING ROY COUTURE</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ==========================================
+       SERVICES PAGE — PROFESSIONAL REFINEMENTS
+       ========================================== */
+
+    /* --- Page Hero Banner --- */
+    .services-hero {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      padding: 5.5rem 0 6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services-hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 900px;
+      background: radial-gradient(circle, rgba(195, 182, 163, 0.1) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .services-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .services-hero h1 {
+      color: var(--color-secondary);
+      font-size: 3rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .services-hero p {
+      color: var(--color-accent);
+      font-size: 1.1rem;
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* --- Primary Offering Editorial Card --- */
+    .primary-offering {
+      padding: 5.5rem 0 4rem;
+    }
+
+    .editorial-card {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      padding: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .editorial-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--color-secondary), var(--color-primary));
+    }
+
+    .editorial-card h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.25;
+    }
+
+    .editorial-card p {
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+    }
+
+    .editorial-card .pricing-note {
+      font-size: 0.92rem;
+      padding: 1rem 1.2rem;
+      background-color: var(--color-secondary-light);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--color-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .editorial-card .pricing-note strong {
+      color: var(--color-primary);
+    }
+
+    .editorial-image {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      height: 100%;
+      min-height: 380px;
+    }
+
+    .editorial-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .editorial-image:hover img {
+      transform: scale(1.03);
+    }
+
+    /* ==========================================
+       SLIDESHOW — PORTFOLIO SHOWCASE
+       ========================================== */
+    .portfolio-section {
+      padding: 4.5rem 0 5rem;
+      background-color: rgba(195, 182, 163, 0.08);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .portfolio-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 3rem;
+    }
+
+    .portfolio-header h2 {
+      font-size: 2.4rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.25;
+    }
+
+    .portfolio-header p {
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    .slideshow-wrapper {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+      border: 1px solid var(--color-border);
+      background-color: var(--color-white);
+    }
+
+    .slides-container {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      width: 100%;
+      will-change: transform;
+    }
+
+    .slide-item {
+      min-width: 100%;
+      box-sizing: border-box;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      background-color: var(--color-white);
+    }
+
+    .slide-image-container {
+      height: 540px;
+      width: 100%;
+      background-color: var(--color-secondary-light);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .slide-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+      background-color: var(--color-secondary-light);
+      transition: transform 0.5s ease;
+    }
+
+    .slide-item:hover .slide-image-container img {
+      transform: scale(1.02);
+    }
+
+    .slide-details {
+      padding: 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: var(--color-white);
+    }
+
+    .slide-category {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-primary);
+      background-color: var(--color-secondary-light);
+      padding: 0.35rem 0.75rem;
+      border-radius: 4px;
+      width: fit-content;
+      margin-bottom: 1rem;
+    }
+
+    .slide-title {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      margin-bottom: 0.8rem;
+      color: var(--color-primary);
+      line-height: 1.3;
+    }
+
+    .slide-description {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1.8rem;
+      line-height: 1.8;
+    }
+
+    /* --- Arrows --- */
+    .slide-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(250, 248, 245, 0.92);
+      color: var(--color-primary);
+      border: 1px solid var(--color-border);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      line-height: 1;
+      transition: all 0.25s ease;
+      z-index: 10;
+      backdrop-filter: blur(6px);
+    }
+
+    .slide-arrow:hover {
+      background-color: var(--color-primary);
+      color: var(--color-secondary);
+      transform: translateY(-50%) scale(1.08);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .slide-prev { left: 18px; }
+    .slide-next { right: 18px; }
+
+    /* --- Dots --- */
+    .slideshow-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 1.8rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--color-border);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background-color: var(--color-primary);
+      width: 30px;
+      border-radius: 10px;
+    }
+
+    .dot:hover {
+      background-color: var(--color-primary);
+    }
+
+    /* ==========================================
+       READY-TO-WEAR WAITLIST BANNER
+       ========================================== */
+    .waitlist-section {
+      padding: 5.5rem 0;
+    }
+
+    .waitlist-card {
+      background: linear-gradient(135deg, rgba(53, 5, 57, 0.04) 0%, rgba(195, 182, 163, 0.22) 100%);
+      border-radius: var(--radius-md);
+      padding: 4rem 2.5rem;
+      text-align: center;
+      border: 1.5px dashed var(--color-secondary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .waitlist-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(195, 182, 163, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .waitlist-card .container-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .waitlist-card h2 {
+      font-size: 2.2rem;
+      margin: 1rem 0 1rem;
+      line-height: 1.25;
+    }
+
+    .waitlist-card p {
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+    }
+
+    /* ==========================================
+       RESPONSIVE
+       ========================================== */
+    @media (max-width: 992px) {
+      .editorial-card {
+        grid-template-columns: 1fr;
+        padding: 2.5rem;
+        gap: 2.5rem;
+      }
+
+      .editorial-image {
+        min-height: 320px;
+        order: -1;
+      }
+
+      .slide-image-container {
+        height: 460px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .services-hero {
+        padding: 4rem 0;
+      }
+
+      .services-hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .services-hero p {
+        font-size: 1rem;
+      }
+
+      .primary-offering {
+        padding: 3.5rem 0 3rem;
+      }
+
+      .editorial-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .editorial-card h2 {
+        font-size: 1.7rem;
+      }
+
+      .slide-item {
+        grid-template-columns: 1fr;
+      }
+
+      .slide-image-container {
+        height: 400px;
+      }
+
+      .slide-details {
+        padding: 2rem 1.75rem;
+      }
+
+      .slide-title {
+        font-size: 1.4rem;
+      }
+
+      .slide-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+
+      .slide-prev { left: 12px; }
+      .slide-next { right: 12px; }
+
+      .portfolio-header h2 {
+        font-size: 1.9rem;
+      }
+
+      .waitlist-card {
+        padding: 3rem 1.5rem;
+      }
+
+      .waitlist-card h2 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .services-hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .editorial-card {
+        padding: 1.75rem 1.25rem;
+      }
+
+      .editorial-card h2 {
+        font-size: 1.5rem;
+      }
+
+      .slide-image-container {
+        height: 340px;
+      }
+
+      .slide-details {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .slide-title {
+        font-size: 1.25rem;
+      }
+
+      .slide-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+
+      .slide-prev { left: 10px; }
+      .slide-next { right: 10px; }
+
+      .waitlist-card h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       SITE NAVIGATION HEADER
+       ============================================ -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html">
+        <img src="assets/logo.jpeg" alt="AMAZING ROY Logo" class="brand-logo">
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="services.html" class="active">Custom Couture</a></li>
+          <li><a href="contact.html">Contact &amp; Studio</a></li>
+          <li>
+            <a href="https://wa.me/2347080262027?text=Hello%20Amazing%20ROY..." target="_blank" class="btn-whatsapp">WhatsApp Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================
+       PAGE HERO BANNER
+       ============================================ -->
+  <section class="services-hero">
+    <div class="container">
+      <span class="section-tag" style="background: rgba(195,182,163,0.2); color: var(--color-secondary);">Craftsmanship</span>
+      <h1>Services &amp; Offerings</h1>
+      <p>Bespoke modest tailoring and functional apparel built for the ambitious woman.</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PRIMARY OFFERING — EDITORIAL CARD
+       ============================================ -->
+  <section class="primary-offering">
+    <div class="container">
+      <div class="editorial-card">
+
+        <div>
+          <span class="section-tag">Primary Offering</span>
+          <h2>Custom Modest Wear &amp; Tailoring</h2>
+          <p>
+            Every custom garment is designed specifically around your personal style, body measurements, and preferences. From bespoke dresses and structured blazers to cultural attire, we turn your concept into a finished piece.
+          </p>
+          <div class="pricing-note">
+            <strong>Pricing:</strong> Quoted individually based on design complexity, fabric selection, and detail work required.
+          </div>
+          <a href="https://wa.me/2347080262027?text=Hello%20Amazing%20ROY,%20I%20would%20like%20to%20request%20a%20quote..." target="_blank" class="btn-primary">Request a Custom Quote</a>
+        </div>
+
+        <div class="editorial-image">
+          <img src="assets/outfit.jpg" alt="Custom Tailoring Details by AMAZING ROY COUTURE" loading="lazy">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       INTERACTIVE PORTFOLIO SLIDESHOW
+       ============================================ -->
+  <section class="portfolio-section">
+    <div class="container">
+
+      <div class="portfolio-header">
+        <span class="section-tag">Portfolio Showcase</span>
+        <h2>Featured Atelier Creations</h2>
+        <p>Swipe or navigate through a showcase of custom modest garments previously crafted for our clients.</p>
+      </div>
+
+      <div class="slideshow-wrapper">
+
+        <!-- Controls -->
+        <button class="slide-arrow slide-prev" id="slidePrev" aria-label="Previous Outfit">&lsaquo;</button>
+        <button class="slide-arrow slide-next" id="slideNext" aria-label="Next Outfit">&rsaquo;</button>
+
+        <!-- Track -->
+        <div class="slides-container" id="slidesTrack">
+
+          <!-- Slide 1 -->
+          <div class="slide-item">
+            <div class="slide-image-container">
+              <img src="assets/outfit1.png" alt="Structured Modest Gown — Fringed Batwing Abaya" loading="lazy">
+            </div>
+            <div class="slide-details">
+              <span class="slide-category">Formal Modest Wear</span>
+              <h3 class="slide-title">Fringed Batwing Abaya</h3>
+              <p class="slide-description">A loose-fitting blue printed top with an artistic multicolour pattern, rounded collar, wide sleeves, and distinctive elongated side panels.</p>
+              <a href="https://wa.me/2347080262027?text=Hello%20Amazing%20ROY,%20I%20am%20interested%20in%20the%20Fringed%20Batwing%20Abaya..." target="_blank" class="btn-primary" style="width: fit-content;">Inquire About This Look</a>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="slide-item">
+            <div class="slide-image-container">
+              <img src="assets/outfit2.jpg" alt="Casual Modest Wear — Printed Asymmetric Poncho Top" loading="lazy">
+            </div>
+            <div class="slide-details">
+              <span class="slide-category">Casual &amp; Weekend Wear</span>
+              <h3 class="slide-title">Printed Asymmetric Poncho Top</h3>
+              <p class="slide-description">Comfortable, functional corporate attire crafted for everyday professional wear.</p>
+              <a href="https://wa.me/2347080262027?text=Hello%20Amazing%20ROY,%20I%20am%20interested%20in%20the%20Asymmetric%20Poncho%20Top..." target="_blank" class="btn-primary" style="width: fit-content;">Inquire About This Look</a>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="slide-item">
+            <div class="slide-image-container">
+              <img src="assets/outfit3.png" alt="Evening Wear — Mauve Lace Off-Shoulder Gown" loading="lazy">
+            </div>
+            <div class="slide-details">
+              <span class="slide-category">Evening &amp; Special Occasion Wear</span>
+              <h3 class="slide-title">Mauve Lace Off-Shoulder Gown</h3>
+              <p class="slide-description">An elegant mauve lace maxi dress featuring an off-shoulder neckline, fitted long sleeves, a gathered waist, and a high side slit.</p>
+              <a href="https://wa.me/2347080262027?text=Hello%20Amazing%20ROY,%20I%20am%20interested%20in%20the%20Mauve%20Lace%20Gown..." target="_blank" class="btn-primary" style="width: fit-content;">Inquire About This Look</a>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="slide-item">
+            <div class="slide-image-container">
+              <img src="assets/outfit4.png" alt="Business Wear — Black Tailored Two-Piece Set" loading="lazy">
+            </div>
+            <div class="slide-details">
+              <span class="slide-category">Business &amp; Professional Wear</span>
+              <h3 class="slide-title">Black Tailored Two-Piece Set</h3>
+              <p class="slide-description">A structured black blazer and wrap-style skirt paired with a white camisole, finished with contrasting trim and gold button accents.</p>
+              <a href="https://wa.me/2347080262027?text=Hello%20Amazing%20ROY,%20I%20am%20interested%20in%20the%20Black%20Tailored%20Set..." target="_blank" class="btn-primary" style="width: fit-content;">Inquire About This Look</a>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="slide-item">
+            <div class="slide-image-container">
+              <img src="assets/outfit5.jpg" alt="Everyday Wear — Cobalt Blue Maxi Skirt" loading="lazy">
+            </div>
+            <div class="slide-details">
+              <span class="slide-category">Versatile Everyday Wear</span>
+              <h3 class="slide-title">Cobalt Blue Maxi Skirt</h3>
+              <p class="slide-description">A simple, flowing full-length blue skirt with a comfortable elasticated waistband and a clean, elegant silhouette.</p>
+              <a href="https://wa.me/2347080262027?text=Hello%20Amazing%20ROY,%20I%20am%20interested%20in%20the%20Cobalt%20Blue%20Maxi%20Skirt..." target="_blank" class="btn-primary" style="width: fit-content;">Inquire About This Look</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Dots Indicator -->
+      <div class="slideshow-dots" id="slidesDots"></div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       READY-TO-WEAR WAITLIST BANNER
+       ============================================ -->
+  <section class="waitlist-section">
+    <div class="container">
+      <div class="waitlist-card">
+        <div class="container-inner">
+          <span class="section-tag" style="background-color: var(--color-primary); color: var(--color-secondary);">Launching Soon</span>
+          <h2>Modest Ready-to-Wear Collection</h2>
+          <p>
+            We are currently crafting a modest ready-to-wear line engineered for comfort, functionality, and timeless elegance. Standard fixed pricing will be available upon launch.
+          </p>
+          <a href="https://wa.me/2347080262027?text=Hello%20Amazing%20ROY,%20I%20would%20like%20to%20join%20the%20waitlist..." target="_blank" class="btn-whatsapp">Join Waitlist on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       REUSABLE SITE FOOTER
+       ============================================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand Info & Social Media Links -->
+        <div class="footer-brand">
+          <a href="index.html">
+            <img src="assets/logo.jpeg" alt="AMAZING ROY COUTURE Logo" style="height: 50px; border-radius: var(--radius-sm);">
+          </a>
+          <p>
+            Combining thoughtful design, quality craftsmanship, comfort, functionality, and timeless elegance for the ambitious modest woman.
+          </p>
+
+           <!-- Social Media SVG Icons -->
+          <div class="social-links">
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/amazing_roy_f" target="_blank" class="social-icon" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://tiktok.com/@amazing_roy_f" target="_blank" class="social-icon" aria-label="TikTok">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+              </svg>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/2347080262027" target="_blank" class="social-icon" aria-label="WhatsApp">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="services.html">Custom Couture</a></li>
+            <li><a href="contact.html">Contact &amp; Studio</a></li>
+          </ul>
+        </div>
+
+        <!-- Offerings -->
+        <div>
+          <h4 class="footer-title">Offerings</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Bespoke Tailoring</a></li>
+            <li><a href="services.html">Modest Custom Wear</a></li>
+            <li><a href="services.html">Corporate Apparel</a></li>
+            <li><a href="services.html">Ready-to-Wear (Soon)</a></li>
+          </ul>
+        </div>
+
+        <!-- Studio Contact Info -->
+        <div>
+          <h4 class="footer-title">Studio &amp; Inquiries</h4>
+
+          <div class="footer-contact-item">
+            <span>📍</span>
+            <span>8 Oke Ola Street, Modakeke, Ile-Ife, Osun State</span>
+          </div>
+
+          <div class="footer-contact-item">
+            <span>📞</span>
+            <a href="tel:07080262027">07080262027</a>
+          </div>
+
+          <div class="footer-contact-item">
+            <span>✉️</span>
+            <a href="mailto:amazingroy.ff@gmail.com">amazingroy.ff@gmail.com</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 AMAZING ROY COUTURE. All rights reserved.</p>
+        <p>Founded by Roheemot Omolara Yunus</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       FOOTER SOCIAL ICON STYLES
+       ============================================ -->
+  <style>
+    .social-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #e0e0e0;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-icon:hover {
+      background-color: var(--accent, #c9a87c);
+      color: #1a1a1a;
+      border-color: var(--accent, #c9a87c);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-icon svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+      fill: currentColor;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .footer-contact-item a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-contact-item a:hover {
+      color: var(--accent, #c9a87c);
+    }
+  </style>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

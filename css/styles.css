@@ -1,0 +1,532 @@
+/* ==========================================================================
+   1. Google Fonts & Root Design Tokens
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Brand Palette */
+  --color-primary: #350539;         /* Deep Purple */
+  --color-primary-hover: #230226;
+  --color-secondary: #C3B6A3;       /* Cream Accent */
+  --color-secondary-light: #F4F0EA; /* Soft Cream Tint */
+  --color-accent: #E5DCCF;          /* Warm Neutral */
+  --color-bg-light: #FDFBF7;        /* Off-White Page Background */
+  --color-white: #FFFFFF;
+  
+  /* Text & Border Colors */
+  --color-text-dark: #1E1320;       /* Rich Charcoal-Purple */
+  --color-text-muted: #5C525E;      /* Muted Subtitle Gray */
+  --color-border: rgba(195, 182, 163, 0.45);
+  --color-border-hover: rgba(53, 5, 57, 0.3);
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Layout & Elevations */
+  --max-width: 1200px;
+  --border-radius-sm: 6px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+  --shadow-subtle: 0 4px 20px rgba(53, 5, 57, 0.04);
+  --shadow-hover: 0 12px 30px rgba(53, 5, 57, 0.12);
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   2. Global Reset & Base Styles
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-smooth);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   3. Typography & Section Headers
+   ========================================================================== */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+p {
+  color: var(--color-text-muted);
+}
+
+/* Reusable Container */
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Section Spacing Utility */
+.section-padding {
+  padding: 5rem 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3.5rem 0;
+  }
+}
+
+/* ==========================================================================
+   4. Interactive Component Buttons
+   ========================================================================== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  padding: 0.9rem 2rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid var(--color-primary);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(53, 5, 57, 0.1);
+  transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: #25D366;
+  color: var(--color-white);
+  padding: 0.9rem 2rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.15);
+  transition: var(--transition-smooth);
+}
+
+.btn-whatsapp:hover {
+  background-color: #1eb857;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+}
+
+/* ==========================================================================
+   5. Site Header & Modern Navigation
+   ========================================================================== */
+.site-header {
+  background-color: rgba(253, 251, 247, 0.92);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 0;
+}
+
+.brand-logo {
+  height: 52px;
+  width: auto;
+  border-radius: 6px;
+  transition: var(--transition-smooth);
+}
+
+.brand-logo:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: var(--transition-smooth);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   6. Hero & Feature Layouts
+   ========================================================================== */
+.hero-section {
+  padding: 5.5rem 0;
+  background: linear-gradient(135deg, rgba(53, 5, 57, 0.04) 0%, rgba(195, 182, 163, 0.18) 100%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+  margin-bottom: 1.2rem;
+}
+
+.hero-content p {
+  font-size: 1.125rem;
+  margin-bottom: 2.2rem;
+  max-width: 540px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.hero-image img {
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-hover);
+  border: 1px solid var(--color-border);
+}
+
+/* ==========================================================================
+   7. Process & Cards Display Grid
+   ========================================================================== */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.process-card {
+  background-color: var(--color-white);
+  padding: 2.2rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.process-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--color-primary);
+}
+
+.process-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-border-hover);
+}
+
+/* ==========================================================================
+   8. Form Inputs & Interactive Controls
+   ========================================================================== */
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid #D8D2CA;
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  transition: var(--transition-smooth);
+  outline: none;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: var(--color-primary);
+  background-color: var(--color-white);
+  box-shadow: 0 0 0 3px rgba(53, 5, 57, 0.1);
+}
+
+form label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 0.4rem;
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   9. Mobile Drawer & Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .hero-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-image {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-bg-light);
+    flex-direction: column;
+    padding: 2.5rem 2rem;
+    gap: 1.8rem;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-150%);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-smooth);
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-links a::after {
+    display: none; /* Hide hover line animation on touch screens */
+  }
+}
+/* ==========================================================================
+   10. Site Footer Component
+   ========================================================================== */
+.site-footer {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 4.5rem 0 2rem 0;
+  border-top: 1px solid rgba(195, 182, 163, 0.2);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-brand p {
+  color: var(--color-accent);
+  font-size: 0.95rem;
+  margin: 1rem 0 1.5rem 0;
+  max-width: 320px;
+}
+
+.footer-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-secondary);
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-links a {
+  color: var(--color-accent);
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--color-secondary);
+  padding-left: 4px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--color-accent);
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+}
+
+.footer-contact-item a {
+  color: var(--color-secondary);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.footer-contact-item a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Styled Social Media Icon Links
+   ========================================================================== */
+.social-links {
+  display: flex;
+  gap: 0.9rem;
+  margin-top: 1.2rem;
+}
+
+.social-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(195, 182, 163, 0.12); /* Subtle cream transparent fill */
+  border: 1px solid rgba(195, 182, 163, 0.3); /* Metallic cream border */
+  padding: 10px;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  backdrop-filter: blur(4px);
+}
+
+.social-img-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Converts default colored icons into elegant Cream (#C3B6A3) tint */
+  filter: brightness(0) invert(83%) sepia(12%) saturate(468%) hue-rotate(352deg) brightness(89%) contrast(85%);
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+
+/* Hover Effect: Glow & Color Shift */
+.social-icon:hover {
+  background: var(--color-secondary); /* Flips to Cream background */
+  border-color: var(--color-secondary);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(195, 182, 163, 0.25);
+}
+
+.social-icon:hover .social-img-icon {
+  /* Inverts icon color to Deep Purple (#350539) on hover */
+  filter: brightness(0) saturate(100%) invert(8%) sepia(82%) saturate(5412%) hue-rotate(282deg) brightness(85%) contrast(108%);
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(195, 182, 163, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--color-accent);
+}
+
+@media (max-width: 992px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

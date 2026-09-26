@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AMAZING ROY COUTURE — Bespoke modest apparel, corporate wear, and custom tailoring for the ambitious woman. Based in Ile-Ife, Osun State.">
+  <title>AMAZING ROY COUTURE | Bespoke Modest Apparel</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ============================================
+       HOMEPAGE — PROFESSIONAL REFINEMENTS
+       ============================================ */
+
+    /* --- HERO SECTION --- */
+    .hero-home {
+      background: linear-gradient(135deg, #f8f5f0 0%, #efe9e0 100%);
+      padding: 6rem 0 7rem;
+      border-bottom: 1px solid var(--color-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-home::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(195, 182, 163, 0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-home .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-heading);
+      font-size: 3.4rem;
+      color: var(--color-primary);
+      line-height: 1.12;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: 2.2rem;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-secondary-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.8rem;
+      border: 1.5px solid var(--color-primary);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      color: var(--color-primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+      background: transparent;
+    }
+
+    .btn-secondary-outline:hover {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Hero Image Frame */
+    .hero-image-frame {
+      width: 100%;
+      height: 520px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.04);
+      position: relative;
+      background-color: var(--color-primary);
+    }
+
+    .hero-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .hero-image-frame:hover img {
+      transform: scale(1.03);
+    }
+
+    /* --- SECTION: CORE OFFERINGS --- */
+    .offerings-section {
+      padding: 5.5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 3.5rem auto;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-heading);
+      font-size: 2.3rem;
+      color: var(--color-primary);
+      margin-bottom: 0.8rem;
+      line-height: 1.25;
+    }
+
+    .section-header p {
+      color: var(--color-text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .offerings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .offering-card {
+      background: var(--color-white);
+      padding: 2.5rem 2rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-card);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .offering-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .offering-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--color-secondary);
+    }
+
+    .offering-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .offering-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(195, 182, 163, 0.25), rgba(195, 182, 163, 0.08));
+      color: var(--color-primary);
+      margin-bottom: 1.4rem;
+      font-size: 1.4rem;
+    }
+
+    .offering-card h3 {
+      font-family: var(--font-heading);
+      color: var(--color-primary);
+      margin-bottom: 0.7rem;
+      font-size: 1.25rem;
+    }
+
+    .offering-card p {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* --- SECTION: BRAND PROMISE --- */
+    .promise-strip {
+      background-color: var(--color-primary);
+      padding: 4rem 0;
+      color: var(--color-white);
+    }
+
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2.5rem;
+      text-align: center;
+    }
+
+    .promise-item h3 {
+      font-family: var(--font-heading);
+      color: var(--color-secondary);
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .promise-item p {
+      color: var(--color-accent);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 900px) {
+      .hero-home .container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2.6rem;
+      }
+
+      .hero-image-frame {
+        height: 400px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-home {
+        padding: 4rem 0 5rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .hero-image-frame {
+        height: 320px;
+      }
+
+      .offerings-section {
+        padding: 3.5rem 0;
+      }
+
+      .section-header h2 {
+        font-size: 1.8rem;
+      }
+
+      .offering-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .promise-strip {
+        padding: 3rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       SITE NAVIGATION
+       ============================================ -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html">
+        <img src="assets/logo.jpeg" alt="AMAZING ROY Logo" class="brand-logo">
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="services.html">Custom Couture</a></li>
+          <li><a href="contact.html">Contact &amp; Studio</a></li>
+          <li>
+            <a href="https://wa.me/2347080262027?text=Hello%20Amazing%20ROY..." target="_blank" class="btn-whatsapp">WhatsApp Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="hero-home">
+    <div class="container">
+
+      <div class="hero-content">
+        <span class="section-tag">Handcrafted Bespoke Fashion</span>
+        <h1>Tailored Elegance for the Ambitious Modest Woman</h1>
+        <p>
+          Combining precision pattern engineering, quality fabrics, and functional comfort for corps members, professionals, and entrepreneurs.
+        </p>
+        <div class="hero-actions">
+          <a href="services.html" class="btn-primary">Book Consultation</a>
+          <a href="about.html" class="btn-secondary-outline">Meet the Founder</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="hero-image-frame">
+          <img src="assets/logo.jpeg" alt="Bespoke Modest Couture Outfit by AMAZING ROY COUTURE">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       CORE OFFERINGS GRID
+       ============================================ -->
+  <section class="offerings-section">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">What We Craft</span>
+        <h2>Designed for Confidence</h2>
+        <p>Every garment is built around structural integrity, precise measurements, and functional elegance tailored to your lifestyle.</p>
+      </div>
+
+      <div class="offerings-grid">
+
+        <div class="offering-card">
+          <div class="offering-icon">✦</div>
+          <h3>Modest Couture</h3>
+          <p>Flowing gowns, set pieces, and structural wear designed with complete coverage and grace.</p>
+        </div>
+
+        <div class="offering-card">
+          <div class="offering-icon">◆</div>
+          <h3>Corporate Wear</h3>
+          <p>Sharply tailored suits, blazers, and modest workwear built for performance and polish.</p>
+        </div>
+
+        <div class="offering-card">
+          <div class="offering-icon">◇</div>
+          <h3>Bespoke Fittings</h3>
+          <p>Custom measurements taken directly in studio or virtually for an exact personal fit.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       BRAND PROMISE STRIP
+       ============================================ -->
+  <section class="promise-strip">
+    <div class="container">
+      <div class="promise-grid">
+        <div class="promise-item">
+          <h3>Precision Fit</h3>
+          <p>Measurements engineered for your unique silhouette.</p>
+        </div>
+        <div class="promise-item">
+          <h3>Quality Fabrics</h3>
+          <p>Sourced for durability, comfort, and timeless appeal.</p>
+        </div>
+        <div class="promise-item">
+          <h3>Modest by Design</h3>
+          <p>Coverage and elegance woven into every stitch.</p>
+        </div>
+        <div class="promise-item">
+          <h3>Personal Service</h3>
+          <p>Direct consultation from sketch to final fitting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       REUSABLE SITE FOOTER
+       ============================================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand Info & Social Media Links -->
+        <div class="footer-brand">
+          <a href="index.html">
+            <img src="assets/logo.jpeg" alt="AMAZING ROY COUTURE Logo" style="height: 50px; border-radius: var(--radius-sm);">
+          </a>
+          <p>
+            Combining thoughtful design, quality craftsmanship, comfort, functionality, and timeless elegance for the ambitious modest woman.
+          </p>
+
+          <!-- Social Media SVG Icons -->
+          <div class="social-links">
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/amazing_roy_f" target="_blank" class="social-icon" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://tiktok.com/@amazing_roy_f" target="_blank" class="social-icon" aria-label="TikTok">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+              </svg>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/2347080262027" target="_blank" class="social-icon" aria-label="WhatsApp">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="services.html">Custom Couture</a></li>
+            <li><a href="contact.html">Contact &amp; Studio</a></li>
+          </ul>
+        </div>
+
+        <!-- Offerings -->
+        <div>
+          <h4 class="footer-title">Offerings</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Bespoke Tailoring</a></li>
+            <li><a href="services.html">Modest Custom Wear</a></li>
+            <li><a href="services.html">Corporate Apparel</a></li>
+            <li><a href="services.html">Ready-to-Wear (Soon)</a></li>
+          </ul>
+        </div>
+
+        <!-- Studio Contact Info -->
+        <div>
+          <h4 class="footer-title">Studio &amp; Inquiries</h4>
+
+          <div class="footer-contact-item">
+            <span>📍</span>
+            <span>8 Oke Ola Street, Modakeke, Ile-Ife, Osun State</span>
+          </div>
+
+          <div class="footer-contact-item">
+            <span>📞</span>
+            <a href="tel:07080262027">07080262027</a>
+          </div>
+
+          <div class="footer-contact-item">
+            <span>✉️</span>
+            <a href="mailto:amazingroy.ff@gmail.com">amazingroy.ff@gmail.com</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 AMAZING ROY COUTURE. All rights reserved.</p>
+        <p>Founded by Roheemot Omolara Yunus</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       FOOTER SOCIAL ICON STYLES
+       ============================================ -->
+  <style>
+    .social-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #e0e0e0;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-icon:hover {
+      background-color: var(--accent, #c9a87c);
+      color: #1a1a1a;
+      border-color: var(--accent, #c9a87c);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-icon svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+      fill: currentColor;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .footer-contact-item a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-contact-item a:hover {
+      color: var(--accent, #c9a87c);
+    }
+  </style>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
