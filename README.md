@@ -12,7 +12,7 @@ Founded by **Roheemot Omolara Yunus** — Ile-Ife, Osun State, Nigeria.
 ---
 
 ## 📁 Project Structure
-amazing-roy-couture/
+amazing-roy/
 │
 ├── index.html
 ├── about.html
