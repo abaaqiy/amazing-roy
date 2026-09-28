@@ -1,4 +1,4 @@
-# AMAZING ROY COUTURE — Website
+# AMAZING ROY — Website
 
 Bespoke modest apparel, corporate wear, and custom tailoring brand website.
 Founded by **Roheemot Omolara Yunus** — Ile-Ife, Osun State, Nigeria.
