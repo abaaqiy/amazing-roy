@@ -27,6 +27,7 @@ amazing-roy/
 │
 ├── assets/
 │   ├── logo.jpeg
+│   ├── logo1.jpg
 │   ├── founder.jpg
 │   ├── certificate.png
 │   ├── outfit.jpg
