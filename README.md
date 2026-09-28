@@ -7,7 +7,7 @@ Founded by **Roheemot Omolara Yunus** — Ile-Ife, Osun State, Nigeria.
 
 ## 🌐 Live Site
 
-> Update after deployment: `https://amazingroycouture.com`
+> Update after deployment: https://amazing-roy-couture.vercel.app/
 
 ---
 
