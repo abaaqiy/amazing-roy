@@ -1,7 +1,7 @@
 /* ==========================================================================
    AMAZING ROY COUTURE — Main JavaScript
    Handles: mobile nav, active link highlighting, smooth scroll,
-            scroll reveal, header shadow, portfolio slideshow (with swipe).
+            scroll reveal, header shadow, portfolio slideshows (with swipe).
    ========================================================================== */
 
 (function () {
@@ -187,14 +187,25 @@
   }
 
   /* ============================================================
-     8. PORTFOLIO SLIDESHOW — with swipe, dots, autoplay, keyboard
+     8. PORTFOLIO SLIDESHOW — Reusable for multiple slideshows
+        Featured Creations | The Details | Behind the Stitch
      ============================================================ */
-  function initPortfolioSlideshow() {
-    const track = document.getElementById('slidesTrack');
-    const prevBtn = document.getElementById('slidePrev');
-    const nextBtn = document.getElementById('slideNext');
-    const dotsContainer = document.getElementById('slidesDots');
 
+  /**
+   * Initialize a single slideshow.
+   * @param {string} trackId  - id of the .slides-container
+   * @param {string} prevId   - id of the previous arrow button
+   * @param {string} nextId   - id of the next arrow button
+   * @param {string} dotsId   - id of the dots container
+   * @param {number} autoplayDelay - ms between auto-advance (default 6000)
+   */
+  function initSlideshow(trackId, prevId, nextId, dotsId, autoplayDelay) {
+    const track = document.getElementById(trackId);
+    const prevBtn = document.getElementById(prevId);
+    const nextBtn = document.getElementById(nextId);
+    const dotsContainer = document.getElementById(dotsId);
+
+    // Skip silently if this slideshow isn't on the page
     if (!track || !prevBtn || !nextBtn) return;
 
     const slides = Array.from(track.querySelectorAll('.slide-item'));
@@ -203,7 +214,7 @@
     let currentIndex = 0;
     const totalSlides = slides.length;
     let autoplayTimer = null;
-    const AUTOPLAY_DELAY = 6000; // 6 seconds
+    const AUTOPLAY_DELAY = autoplayDelay || 6000;
 
     /* --- Build dots dynamically --- */
     if (dotsContainer) {
@@ -224,21 +235,18 @@
     function updateSlidePosition() {
       track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
 
-      // Update dots
       if (dotsContainer) {
         dotsContainer.querySelectorAll('.dot').forEach(function (dot, i) {
           dot.classList.toggle('active', i === currentIndex);
         });
       }
 
-      // Update slide aria
       slides.forEach(function (slide, i) {
         slide.setAttribute('aria-hidden', i !== currentIndex ? 'true' : 'false');
       });
     }
 
     function goToSlide(index) {
-      // Wrap around
       if (index < 0) index = totalSlides - 1;
       if (index >= totalSlides) index = 0;
       currentIndex = index;
@@ -248,7 +256,7 @@
     function nextSlide() { goToSlide(currentIndex + 1); }
     function prevSlide() { goToSlide(currentIndex - 1); }
 
-    /* --- Wire up arrow buttons --- */
+    /* --- Arrow buttons --- */
     nextBtn.addEventListener('click', function () {
       nextSlide();
       restartAutoplay();
@@ -278,14 +286,14 @@
       startAutoplay();
     }
 
-    // Pause on hover (desktop) — helpful UX
+    // Pause on hover (desktop)
     const wrapper = track.closest('.slideshow-wrapper');
     if (wrapper) {
       wrapper.addEventListener('mouseenter', stopAutoplay);
       wrapper.addEventListener('mouseleave', startAutoplay);
     }
 
-    // Pause when tab is hidden (saves battery & avoids jump)
+    // Pause when tab is hidden
     document.addEventListener('visibilitychange', function () {
       if (document.hidden) {
         stopAutoplay();
@@ -295,15 +303,15 @@
     });
 
     /* ==========================================================
-       TOUCH SWIPE SUPPORT (this is the mobile piece)
+       TOUCH SWIPE SUPPORT
        ========================================================== */
     let touchStartX = 0;
     let touchStartY = 0;
     let touchEndX = 0;
     let touchEndY = 0;
     let isSwiping = false;
-    const SWIPE_THRESHOLD = 50;   // minimum horizontal distance in px
-    const VERTICAL_TOLERANCE = 60; // ignore if vertical scroll is dominant
+    const SWIPE_THRESHOLD = 50;
+    const VERTICAL_TOLERANCE = 60;
 
     const swipeArea = track.closest('.slideshow-wrapper') || track;
 
@@ -330,7 +338,6 @@
       const deltaX = touchEndX - touchStartX;
       const deltaY = touchEndY - touchStartY;
 
-      // Ignore if the gesture was mostly vertical (user was scrolling)
       if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > VERTICAL_TOLERANCE) {
         startAutoplay();
         return;
@@ -342,23 +349,22 @@
       }
 
       if (deltaX < 0) {
-        nextSlide(); // swipe left → next
+        nextSlide();
       } else {
-        prevSlide(); // swipe right → previous
+        prevSlide();
       }
 
       startAutoplay();
     }, { passive: true });
 
     /* ==========================================================
-       MOUSE DRAG SUPPORT (nice on desktop, harmless on touch)
+       MOUSE DRAG SUPPORT
        ========================================================== */
     let isDragging = false;
     let dragStartX = 0;
     let dragEndX = 0;
 
     swipeArea.addEventListener('mousedown', function (e) {
-      // Ignore right-clicks and clicks on links/buttons
       if (e.button !== 0) return;
       if (e.target.closest('a, button')) return;
       isDragging = true;
@@ -398,7 +404,6 @@
        KEYBOARD NAVIGATION (accessibility)
        ========================================================== */
     document.addEventListener('keydown', function (e) {
-      // Only when slideshow is visible in viewport
       const rect = swipeArea.getBoundingClientRect();
       const inView = rect.top < window.innerHeight && rect.bottom > 0;
       if (!inView) return;
@@ -418,6 +423,20 @@
   }
 
   /* ============================================================
+     INITIALIZE ALL SLIDESHOWS ON THE PAGE
+     ============================================================ */
+  function initAllSlideshows() {
+    // Featured Creations
+    initSlideshow('slidesTrack', 'slidePrev', 'slideNext', 'slidesDots');
+
+    // The Details
+    initSlideshow('detailsTrack', 'detailsPrev', 'detailsNext', 'detailsDots');
+
+    // Behind the Stitch
+    initSlideshow('behindTrack', 'behindPrev', 'behindNext', 'behindDots');
+  }
+
+  /* ============================================================
      INITIALIZE ON DOM READY
      ============================================================ */
   function init() {
@@ -428,7 +447,7 @@
     initSmoothScroll();
     initLazyLoad();
     initFooterYear();
-    initPortfolioSlideshow();
+    initAllSlideshows();
   }
 
   if (document.readyState === 'loading') {
@@ -436,4 +455,5 @@
   } else {
     init();
   }
+
 })();
