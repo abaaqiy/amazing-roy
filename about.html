@@ -46,69 +46,10 @@
       letter-spacing: 0.02em;
     }
 
-    .profile-banner-tag {
-      background: rgba(195, 182, 163, 0.2);
-      color: var(--color-secondary);
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.35rem 0.9rem;
-      border-radius: 50px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      white-space: nowrap;
-    }
-
-    /* --- Profile Details Grid --- */
-    .profile-details-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      padding: 2.5rem 2rem;
-      background-color: rgba(195, 182, 163, 0.05);
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .profile-info-block {
-      padding: 0.5rem 0;
-    }
-
-    .profile-info-block h4 {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--color-primary);
-      margin-bottom: 0.6rem;
-      font-weight: 700;
-    }
-
-    .profile-info-block p {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--color-text);
-      margin: 0;
-      line-height: 1.4;
-    }
-
-    .profile-info-block span {
-      display: block;
-      font-size: 0.85rem;
-      color: var(--color-text-muted);
-      font-weight: 400;
-      margin-top: 0.3rem;
-      line-height: 1.5;
-    }
-
     /* --- Bio Narrative Box --- */
     .bio-narrative-box {
       padding: 2.5rem 2rem;
       background-color: var(--color-white);
-    }
-
-    .bio-narrative-box h4 {
-      font-family: var(--font-heading);
-      font-size: 1.3rem;
-      color: var(--color-primary);
-      margin-bottom: 1.2rem;
     }
 
     .bio-narrative-box p {
@@ -269,11 +210,6 @@
         font-size: 1.8rem;
       }
 
-      .profile-details-grid {
-        padding: 2rem 1.5rem;
-        gap: 1.2rem;
-      }
-
       .bio-narrative-box {
         padding: 2rem 1.5rem;
       }
@@ -304,17 +240,8 @@
         font-size: 1.5rem;
       }
 
-      .profile-details-grid {
-        grid-template-columns: 1fr;
-        padding: 1.5rem 1.2rem;
-      }
-
       .bio-narrative-box {
         padding: 1.5rem 1.2rem;
-      }
-
-      .bio-narrative-box h4 {
-        font-size: 1.15rem;
       }
 
       .pillar-chip {
@@ -353,7 +280,6 @@
        ============================================ -->
   <section class="story-hero">
     <div class="container">
-      <span class="section-tag" style="background: rgba(195,182,163,0.2); color: var(--color-secondary);"></span>
       <h1>Our Story</h1>
       <p></p>
     </div>
@@ -408,45 +334,10 @@
         <!-- Header -->
         <div class="profile-banner-header">
           <h3>Meet the Founder</h3>
-          <span class="profile-banner-tag">Creative Direction</span>
-        </div>
-
-        <!-- Profile Details Grid -->
-        <div class="profile-details-grid">
-
-          <!-- Name & Role -->
-          <div class="profile-info-block">
-            <h4>Founder</h4>
-            <p>Roheemot Omolara Yunus</p>
-            <span>Founder & Creative Director, Amazing ROY</span>
-          </div>
-
-          <!-- Academic & Professional Background -->
-          <div class="profile-info-block">
-            <h4>Education & Background</h4>
-            <p>BSc. Family, Nutrition and Consumer Sciences (in view)</p>
-            <span>Specialized Training in Garment Construction & Pattern Drafting</span>
-          </div>
-
-          <!-- Location & Base -->
-          <div class="profile-info-block">
-            <h4>Location</h4>
-            <p>Modakeke, Osun State</p>
-            <span>8 Oke Ola Street, Ile-Ife, Osun State</span>
-          </div>
-
-          <!-- Specialization -->
-          <div class="profile-info-block">
-            <h4>Design Specialization</h4>
-            <p>Bespoke Modest Couture</p>
-            <span>Corporate Wear & Structural Gowns</span>
-          </div>
-
         </div>
 
         <!-- Detailed Bio Paragraphs -->
         <div class="bio-narrative-box">
-          <h4>About Roheemot Omolara Yunus</h4>
           <p>
            Roheemot is a fashion designer and the founder of Amazing ROY, a modest fashion brand created from her passion for tailoring and her desire to help women feel elegant and confident in what they wear.
           </p>
@@ -459,7 +350,7 @@
 
           <!-- Core Brand Pillars -->
           <div style="margin-top: 1.8rem;">
-            <h4 style="font-size: 1.1rem; margin-bottom: 0.8rem;">Brand Pillars</h4>
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.8rem; font-family: var(--font-heading); color: var(--color-primary);">Brand Pillars</h4>
             <div class="bio-pillars">
               <span class="pillar-chip">✨ Thoughtful Craftsmanship</span>
               <span class="pillar-chip">✨ Structural Elegance</span>
